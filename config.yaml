@@ -1,4 +1,6 @@
 notion:
   token: { YOUR_TOKEN }
+  host: { NOTION_HOST }
+  version: { NOTION_VERSION }
   database:
     id: { YOUR_DATABASE_ID }
