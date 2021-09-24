@@ -1,0 +1,4 @@
+notion:
+  token: { YOUR_TOKEN }
+  database:
+    id: { YOUR_DATABASE_ID }
