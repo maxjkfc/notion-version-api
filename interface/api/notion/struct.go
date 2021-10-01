@@ -1,6 +1,9 @@
 package notion
 
-import "github.com/maxjkfc/notion-version-api/infra/config"
+import (
+	"github.com/go-resty/resty/v2"
+	"github.com/maxjkfc/notion-version-api/infra/config"
+)
 
 // API -
 type API struct {
@@ -20,4 +23,15 @@ func NewAPI(c config.Config) (api API, err error) {
 	}
 
 	return
+}
+
+func (a *API) newRequest() *resty.Request {
+
+	cli := resty.New()
+
+	req := cli.R().SetAuthScheme("Bearer")
+	req.SetAuthToken(a.token)
+	req.SetHeader("Notion-Version", a.version)
+
+	return req
 }
